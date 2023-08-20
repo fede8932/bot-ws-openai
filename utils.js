@@ -1,4 +1,4 @@
-const { downloadMediaMessage } = require('@adiwajshing/baileys');
+const { downloadMediaMessage } = require('@whiskeysockets/baileys');
 const fs = require('node:fs/promises');
 const { convertOggMp3 } = require('./services/convert');
 const { voiceToText } = require('./services/whisper');
