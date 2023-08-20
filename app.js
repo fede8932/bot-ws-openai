@@ -61,11 +61,11 @@ const main = async () => {
    */
   const employees = [
     {
-      name: "EMPLEADO_STAFF_TOUR",
+      name: "EMPLEADO_STAFF_SELL",
       description:
-        "Soy Jorge el staff amable encargado de atentender las solicitudes de los viajeros si tienen dudas, preguntas sobre el tour o la ciudad de madrid, mis respuestas son breves.",
+        "Soy Jorge el staff amable encargado de atentender las consultas relacionadas con ventas, mis respuestas son breves y concisas, en algunos casos intento ser persuacivo",
       flow: flowStaff,
-    }
+    },
   ];
 
   employeesAddon.employees(employees);
