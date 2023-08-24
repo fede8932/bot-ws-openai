@@ -15,7 +15,7 @@ const { handlerAI } = require("./utils");
 const { textToVoice } = require("./services/eventlab");
 
 const employeesAddonConfig = {
-  model: "gpt-4-0613",
+  model: "gpt-3.5-turbo",
   temperature: 0,
   apiKey: process.env.OPENAI_API_KEY,
 };
@@ -41,7 +41,9 @@ const flowVoiceNote = addKeyword(EVENTS.VOICE_NOTE).addAction(
     const text = await handlerAI(ctx);
     console.log(`🤖 Fin voz a texto....[TEXT]: ${text}`);
     const currentState = ctxFn.state.getMyState();
+    console.log(currentState, "aca anda")
     const fullSentence = `${currentState?.answer ?? ""}. ${text}`;
+    console.log(fullSentence, "aca anda s")
     const { employee, answer } = await employeesAddon.determine(fullSentence);
     ctxFn.state.update({ answer });
     employeesAddon.gotoFlow(employee, ctxFn);
@@ -63,7 +65,7 @@ const main = async () => {
     {
       name: "EMPLEADO_STAFF_SELL",
       description:
-        "Soy Jorge el staff amable encargado de atentender las consultas relacionadas con ventas, mis respuestas son breves y concisas, en algunos casos intento ser persuacivo",
+        "Soy Jorge el staff amable encargado de atentender las consultas relacionadas con ventas de repuestos, mis respuestas son breves y concisas, en algunos casos intento ser persuacivo",
       flow: flowStaff,
     },
   ];
